@@ -35,10 +35,40 @@ export const categories: Category[] = [
 export const montadoras = [
   'Volkswagen', 'General Motors', 'Fiat', 'Ford', 'Toyota',
   'Honda', 'Hyundai', 'Renault', 'Scania', 'Mercedes-Benz',
-  'Volvo', 'Yamaha', 'Iveco',
+  'Volvo', 'Yamaha', 'Iveco', 'Universal'
 ];
 
 export const products: Product[] = [
+  {
+    id: '9002-0003',
+    nome: 'Chicote Superseal (Bobina, Farol, GNV)',
+    codigo: '9002.0003',
+    categoria: 'Chicotes Completos',
+    categoriaSlug: 'chicotes',
+    descricao: 'Chicote Superseal altamente versátil com múltiplas aplicações. Atende Bobina de Ignição BAE 800 AE, Farol Dianteiro/Milha, Soquete Lanterna, Flange da Bomba de Combustível, Sensor de Ré, e componentes de linha pesada (Scania, Iveco, VW Constellation). É amplamente utilizado também em diversos Kits GNV como MP48, Tomasetto, SGV, AEB, Landirenzo, entre outros.',
+    aplicacoes: [
+      'Bobina de Ignição',
+      'Farol Dianteiro e Milha',
+      'Soquete Lanterna',
+      'Flange da Bomba Combustível',
+      'Sensor de Ré',
+      'Farol Auxiliar',
+      'Interruptores (Pneumático/Transferência)',
+      'Kits GNV (Família MP48)'
+    ],
+    compatibilidade: [
+      'Fiat (Uno, Palio, Tempra, Doblò, Punto, Siena, etc)',
+      'GM/Chevrolet (Corsa)',
+      'Renault/Nissan (Duster, Mégane, Clio, Tiida, Livina)',
+      'Ford (Ka, Cargo)',
+      'Citroën (Picasso Aircross, Novo C3)',
+      'Linha Pesada (Scania S4, Iveco, Constellation)',
+      'Kits GNV (MP48, Tomasetto, Bugatti, SGV, OMVL, etc)'
+    ],
+    montadora: 'Universal',
+    tags: ['chicote', 'superseal', '9002.0003', 'gnv', 'mp48', 'bobina', 'farol', 'bomba', 'sensor'],
+    icon: Cable,
+  },
   {
     id: 'p001',
     nome: 'Conector 2 Vias Injeção Eletrônica',
