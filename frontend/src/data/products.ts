@@ -12,6 +12,7 @@ export interface Product {
   montadora: string;
   tags: string[];
   icon: LucideIcon;
+  imagem?: string;
 }
 
 export interface Category {
@@ -68,6 +69,7 @@ export const products: Product[] = [
     montadora: 'Universal',
     tags: ['chicote', 'superseal', '9002.0003', 'gnv', 'mp48', 'bobina', 'farol', 'bomba', 'sensor'],
     icon: Cable,
+    imagem: '/foto/2 vias.avif',
   },
   {
     id: 'p001',

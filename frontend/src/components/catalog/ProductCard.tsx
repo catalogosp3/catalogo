@@ -21,8 +21,12 @@ export default function ProductCard({ product, index, onOpen }: ProductCardProps
       onClick={() => onOpen(product)}
       className="group flex flex-col h-full bg-white rounded-2xl border border-slate-200 hover:border-blue-300 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
     >
-      <div className="h-48 flex items-center justify-center bg-slate-50 group-hover:bg-blue-50/50 transition-colors border-b border-slate-100">
-        <Icon size={56} strokeWidth={1} className="text-slate-300 group-hover:text-blue-500 transition-colors duration-300" />
+      <div className="h-48 flex items-center justify-center bg-slate-50 group-hover:bg-blue-50/50 transition-colors border-b border-slate-100 p-4">
+        {product.imagem ? (
+          <img src={`${import.meta.env.BASE_URL}${product.imagem.replace(/^\//, '')}`} alt={product.nome} className="max-h-full max-w-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
+        ) : (
+          <Icon size={56} strokeWidth={1} className="text-slate-300 group-hover:text-blue-500 transition-colors duration-300" />
+        )}
       </div>
 
       <div className="p-6 flex-1 flex flex-col">

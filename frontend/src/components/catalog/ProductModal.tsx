@@ -38,7 +38,11 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
             {/* Lado da Imagem/Ícone */}
             <div className="w-full md:w-2/5 h-64 md:h-auto flex flex-col items-center justify-center bg-slate-50 border-b md:border-b-0 md:border-r border-slate-100 p-8">
-              <Icon size={100} strokeWidth={1} className="text-slate-300 mb-6" />
+              {product.imagem ? (
+                <img src={`${import.meta.env.BASE_URL}${product.imagem.replace(/^\//, '')}`} alt={product.nome} className="max-h-full max-w-full object-contain drop-shadow-md mb-6 hover:scale-105 transition-transform duration-500" />
+              ) : (
+                <Icon size={100} strokeWidth={1} className="text-slate-300 mb-6" />
+              )}
               <span className="inline-block px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-widest shadow-sm">
                  {product.categoria}
               </span>
