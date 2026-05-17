@@ -64,7 +64,7 @@ export default function Header({ activeCategory, onSelectCategory, onNavigate }:
 
           {/* Chamada para Ação */}
           <div className="hidden md:block">
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/5511947776781" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors shadow-sm">
               Fale Conosco
             </a>

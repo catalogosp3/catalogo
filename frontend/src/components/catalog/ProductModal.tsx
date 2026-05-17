@@ -88,7 +88,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 </div>
 
                 <div className="pt-8 border-t border-slate-100 flex flex-col sm:flex-row gap-4">
-                  <a href={`https://wa.me/5511999999999?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer"
+                  <a href={`https://wa.me/5511947776781?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-bold text-base transition-transform hover:-translate-y-1 shadow-lg shadow-green-600/20">
                     <MessageCircle size={20} /> Solicitar no WhatsApp
                   </a>
