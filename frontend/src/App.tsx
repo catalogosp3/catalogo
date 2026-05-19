@@ -9,6 +9,7 @@ import SearchBar from '@/components/catalog/SearchBar';
 import FilterBar from '@/components/catalog/FilterBar';
 import ProductGrid from '@/components/catalog/ProductGrid';
 import ProductModal from '@/components/catalog/ProductModal';
+import Pagination from '@/components/catalog/Pagination';
 import ContactSection from '@/components/contact/ContactSection';
 
 export default function App() {
@@ -16,12 +17,19 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMontadora, setSelectedMontadora] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const PRODUCTS_PER_PAGE = 12;
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelectedProduct(null); };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, []);
+
+  // Reset página quando os filtros mudam
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, selectedMontadora, searchQuery]);
 
   const filteredProducts = useMemo(() => {
     let result = [...products];
@@ -61,9 +69,21 @@ export default function App() {
     setActiveCategory(null);
     setSelectedMontadora(null);
     setSearchQuery('');
+    setCurrentPage(1);
   }, []);
 
   const hasActiveFilters = !!(activeCategory || selectedMontadora || searchQuery);
+
+  // Calcular paginação
+  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const endIndex = startIndex + PRODUCTS_PER_PAGE;
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -105,7 +125,8 @@ export default function App() {
               </div>
             </div>
 
-            <ProductGrid products={filteredProducts} onOpenProduct={setSelectedProduct} />
+            <ProductGrid products={paginatedProducts} onOpenProduct={setSelectedProduct} />
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
           </div>
         </section>
 
